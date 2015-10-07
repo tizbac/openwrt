@@ -484,6 +484,9 @@ ramips_board_detect() {
 	*"WR512-3GN-like"*)
 		name="wr512-3gn"
 		;;
+	*"WL-326")
+		name="wl-326"
+		;;
 	*"WR6202")
 		name="wr6202"
 		;;
