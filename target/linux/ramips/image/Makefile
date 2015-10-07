@@ -748,6 +748,8 @@ endef
 BuildFirmware/WNCE2001/initramfs=$(call BuildFirmware/OF/initramfs,$(1),$(2),$(3))
 Image/Build/Profile/WNCE2001=$(call BuildFirmware/WNCE2001/$(1),$(1),wnce2001,WNCE2001)
 
+Image/Build/Profile/WL-326=$(call BuildFirmware/Default4M/$(1),$(1),wl-326,WL-326)
+
 Image/Build/Profile/WR512-3GN=$(call BuildFirmware/DefaultDualSize/$(1),$(1),wr512-3ng,WR512-3GN)
 
 Image/Build/Profile/WT1520=$(call BuildFirmware/PorayDualSize/$(1),$(1),wt1520,WT1520)
@@ -845,6 +847,7 @@ define Image/Build/Profile/Default
 	$(call Image/Build/Profile/WHRG300N,$(1))
 	$(call Image/Build/Profile/WIZARD8800,$(1))
 	$(call Image/Build/Profile/WIZFI630A,$(1))
+	$(call Image/Build/Profile/WL-326,$(1))
 	$(call Image/Build/Profile/WL-330N,$(1))
 	$(call Image/Build/Profile/WL-330N3G,$(1))
 	$(call Image/Build/Profile/WL-341V3,$(1))
