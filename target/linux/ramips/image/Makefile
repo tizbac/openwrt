@@ -246,8 +246,11 @@ endif
 
 Image/Build/Profile/WL-326=$(call BuildFirmware/Default4M/$(1),$(1),wl-326,WL-326)
 
+Image/Build/Profile/WL-326=$(call BuildFirmware/Default4M/$(1),$(1),wl-326,WL-326)
+
 ifeq ($(SUBTARGET),rt305x)
 include rt305x.mk
+	$(call Image/Build/Profile/WL-326,$(1))
 	$(call Image/Build/Profile/WL-326,$(1))
 endif
 
