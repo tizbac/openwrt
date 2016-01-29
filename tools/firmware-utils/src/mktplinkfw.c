@@ -31,8 +31,8 @@
 
 #define HEADER_VERSION_V1	0x01000000
 #define HEADER_VERSION_V2	0x02000000
-#define HWID_ANTMINER_S1	0x04440001
-#define HWID_ANTMINER_S3	0x04440003
+#define HWID_ANTMINER_S1	0x04440101
+#define HWID_ANTMINER_S3	0x04440301
 #define HWID_GL_INET_V1		0x08000001
 #define HWID_GS_OOLITE_V1	0x3C000101
 #define HWID_ONION_OMEGA	0x04700001
@@ -434,6 +434,11 @@ static struct board_info boards[] = {
 		.hw_rev		= 1,
 		.layout_id	= "8Mlzma",
 	}, {
+		.id		= "ANTMINER-S3",
+		.hw_id		= HWID_ANTMINER_S3,
+		.hw_rev		= 1,
+		.layout_id	= "8Mlzma",
+	}, {
 		/* terminating entry */
 	}
 };
@@ -450,7 +455,7 @@ static struct board_info boards[] = {
 #define ERRS(fmt, ...) do { \
 	int save = errno; \
 	fflush(0); \
-	fprintf(stderr, "[%s] *** error: " fmt "\n", \
+	fprintf(stderr, "[%s] *** error: " fmt ": %s\n", \
 			progname, ## __VA_ARGS__, strerror(save)); \
 } while (0)
 
@@ -704,13 +709,13 @@ static int check_options(void)
 		} else {
 			exceed_bytes = kernel_info.file_size - (rootfs_ofs - sizeof(struct fw_header));
 			if (exceed_bytes > 0) {
-				ERR("kernel image is too big");
+				ERR("kernel image is too big by %i bytes", exceed_bytes);
 				return -1;
 			}
 
 			exceed_bytes = rootfs_info.file_size - (fw_max_len - rootfs_ofs);
 			if (exceed_bytes > 0) {
-				ERR("rootfs image is too big");
+				ERR("rootfs image is too big by %i bytes", exceed_bytes);
 				return -1;
 			}
 		}
