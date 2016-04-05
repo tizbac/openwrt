@@ -175,6 +175,15 @@ ramips_board_detect() {
 	*"FreeStation5")
 		name="freestation5"
 		;;
+	*"GL-MT300A")
+		name="gl-mt300a"
+		;;
+	*"GL-MT300N")
+		name="gl-mt300n"
+		;;
+	*"GL-MT750")
+		name="gl-mt750"
+		;;
 	*"HC5661")
 		name="hc5661"
 		;;
@@ -240,6 +249,9 @@ ramips_board_detect() {
 		;;
 	*"MiWiFi Mini")
 		name="miwifi-mini"
+		;;
+	*"MiWiFi Nano")
+		name="miwifi-nano"
 		;;
 	*"MLW221")
 		name="mlw221"

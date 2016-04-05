@@ -56,6 +56,9 @@ platform_check_image() {
 	firewrt|\
 	fonera20n|\
 	freestation5|\
+	gl-mt300a|\
+	gl-mt300n|\
+	gl-mt750|\
 	hc5*61|\
 	hg255d|\
 	hlk-rm04|\
@@ -75,6 +78,7 @@ platform_check_image() {
 	miniembplug|\
 	miniembwifi|\
 	miwifi-mini|\
+	miwifi-nano|\
 	mlw221|\
 	mlwg2|\
 	mofi3500-3gn|\

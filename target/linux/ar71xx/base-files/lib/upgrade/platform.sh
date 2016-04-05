@@ -66,6 +66,10 @@ tplink_get_image_hwid() {
 	get_image "$@" | dd bs=4 count=1 skip=16 2>/dev/null | hexdump -v -n 4 -e '1/1 "%02x"'
 }
 
+tplink_get_image_mid() {
+	get_image "$@" | dd bs=4 count=1 skip=17 2>/dev/null | hexdump -v -n 4 -e '1/1 "%02x"'
+}
+
 tplink_get_image_boot_size() {
 	get_image "$@" | dd bs=4 count=1 skip=37 2>/dev/null | hexdump -v -n 4 -e '1/1 "%02x"'
 }
@@ -333,9 +337,11 @@ platform_check_image() {
 	gl-inet | \
 	mc-mac1200r | \
 	minibox-v1 |\
+	omy-x1 |\
 	onion-omega | \
 	oolite | \
 	smart-300 | \
+	tellstick-znet-lite | \
 	tl-mr10u | \
 	tl-mr11u | \
 	tl-mr12u | \
@@ -394,13 +400,17 @@ platform_check_image() {
 		}
 
 		local hwid
-		local imageid
+		local mid
+		local imagehwid
+		local imagemid
 
 		hwid=$(tplink_get_hwid)
-		imageid=$(tplink_get_image_hwid "$1")
+		mid=$(tplink_get_mid)
+		imagehwid=$(tplink_get_image_hwid "$1")
+		imagemid=$(tplink_get_image_mid "$1")
 
-		[ "$hwid" != "$imageid" ] && {
-			echo "Invalid image, hardware ID mismatch, hw:$hwid image:$imageid."
+		[ "$hwid" != "$imagehwid" -o "$mid" != "$imagemid" ] && {
+			echo "Invalid image, hardware ID mismatch, hw:$hwid $mid image:$imagehwid $imagemid."
 			return 1
 		}
 
