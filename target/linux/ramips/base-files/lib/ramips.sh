@@ -550,6 +550,9 @@ ramips_board_detect() {
 	*"YK1")
 		name="youku-yk1"
 		;;
+	*"PL-WRM300-B2")
+		name="pl-wrm300-b2-128ram"
+		;;
 	*)
 		name="generic"
 		;;

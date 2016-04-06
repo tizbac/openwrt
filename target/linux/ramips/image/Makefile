@@ -239,6 +239,16 @@ define BuildFirmware/PorayDualSize/squashfs
 endef
 BuildFirmware/PorayDualSize/initramfs=$(call BuildFirmware/DefaultDualSize/initramfs,$(1),$(2),$(3))
 
+define BuildFirmware/Poray16M/squashfs
+	$(call BuildFirmware/Default16M/$(1),$(1),$(2),$(3))
+	if [ -e "$(call sysupname,$(1),$(2)-16M)" ]; then \
+		mkporayfw -B $(3) -F 16M \
+			-f $(call sysupname,$(1),$(2)-16M) \
+			-o $(call imgname,$(1),$(2)-16M)-factory.bin; \
+	fi
+endef
+BuildFirmware/Poray16M/initramfs=$(call BuildFirmware/DefaultDualSize/initramfs,$(1),$(2),$(3))
+
 
 ifeq ($(SUBTARGET),rt288x)
 include rt288x.mk

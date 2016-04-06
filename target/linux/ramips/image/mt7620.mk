@@ -154,6 +154,7 @@ define Device/na930
 endef
 TARGET_DEVICES += na930
 
+Image/Build/Profile/PL-WRM300-B2-128RAM=$(call BuildFirmware/Poray16M/$(1),$(1),pl-wrm300-b2-128ram,PL-WRM300-B2-128RAM)
 microwrt_mtd_size=16515072
 define Device/microwrt
   DTS := MicroWRT
@@ -173,6 +174,7 @@ define Device/mt7620a_mt7610e
   DTS := MT7620a_MT7610e
   IMAGE_SIZE := $(ralink_default_fw_size_8M)
   DEVICE_TITLE := MediaTek MT7620a + MT7610e EVB
+	$(call Image/Build/Profile/PL-WRM300-B2-128RAM,$(1))
 endef
 TARGET_DEVICES += mt7620a_mt7610e
 
