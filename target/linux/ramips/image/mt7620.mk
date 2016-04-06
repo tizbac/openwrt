@@ -100,6 +100,7 @@ Image/Build/Profile/WMR-300=$(call BuildFirmware/Default8M/$(1),$(1),wmr-300,WMR
 Image/Build/Profile/RT-N14U=$(call BuildFirmware/Default8M/$(1),$(1),rt-n14u,RT-N14U)
 Image/Build/Profile/WRTNODE=$(call BuildFirmware/Default16M/$(1),$(1),wrtnode,WRTNODE)
 Image/Build/Profile/WT3020=$(call BuildFirmware/PorayDualSize/$(1),$(1),wt3020,WT3020)
+Image/Build/Profile/PL-WRM300-B2-128RAM=$(call BuildFirmware/Poray16M/$(1),$(1),pl-wrm300-b2-128ram,PL-WRM300-B2-128RAM)
 Image/Build/Profile/MIWIFI-MINI=$(call BuildFirmware/Default16M/$(1),$(1),miwifi-mini,MIWIFI-MINI)
 Image/Build/Profile/GL-MT300A=$(call BuildFirmware/Default16M/$(1),$(1),gl-mt300a,GL-MT300A)
 Image/Build/Profile/GL-MT300N=$(call BuildFirmware/Default16M/$(1),$(1),gl-mt300n,GL-MT300N)
@@ -157,4 +158,5 @@ define Image/Build/Profile/Default
 	$(call Image/Build/Profile/ArcherC20i,$(1))
 	$(call Image/Build/Profile/MicroWRT,$(1))
 	$(call Image/Build/Profile/TINY-AC,$(1))
+	$(call Image/Build/Profile/PL-WRM300-B2-128RAM,$(1))
 endef

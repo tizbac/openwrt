@@ -142,6 +142,7 @@ platform_check_image() {
 	wsr-600|\
 	wt1520|\
 	wt3020|\
+	pl-wrm300-b2-128ram|\
 	wzr-agl300nh|\
 	x5|\
 	x8|\
