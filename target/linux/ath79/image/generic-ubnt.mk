@@ -290,6 +290,16 @@ define Device/ubnt_unifiac-pro
 endef
 TARGET_DEVICES += ubnt_unifiac-pro
 
+define Device/ubnt_unifiac-iw
+  $(Device/ubnt_unifiac)
+  DEVICE_MODEL := UniFi AC IW
+  IMAGE_SIZE := 15859712
+  IMAGES += wipe.bin
+  IMAGE/wipe.bin := $$(IMAGE/sysupgrade.bin) | pad-to 15859712
+  SUPPORTED_DEVICES += unifiac-iw
+endef
+TARGET_DEVICES += ubnt_unifiac-iw
+
 define Device/ubnt_unifi-ap-outdoor-plus
   $(Device/ubnt-bz)
   $(Device/ubnt-unifi-jffs2)
